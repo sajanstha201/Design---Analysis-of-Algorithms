@@ -1,3 +1,18 @@
+/*
+Partition Problem using brute-force technique
+->The partition problem is to determine whether a given set can be partiioned into two
+subsets such that sum of elements in both subsets is the same.
+Examples:
+1.
+Input:arr[]={1,5,11,5}
+Output:True
+The array can be partitoned as {1,5,5} and {11}
+
+2.
+Input: arr[]={1,5,3}
+Output:False
+The array cannot be partitioned into equal sum
+*/
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>

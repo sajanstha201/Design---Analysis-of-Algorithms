@@ -1,3 +1,9 @@
+/*
+Given 'n' items of known weights w1,w2,...,wn and values v1,v2,...,vn and 
+a knapsack of capacity W, find the most valuable subset of the items that fit
+into the knapsack.
+*/
+
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>

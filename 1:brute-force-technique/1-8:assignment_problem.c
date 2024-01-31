@@ -1,3 +1,18 @@
+/*
+There are 'n' peopele who need to be assigned to execute 'n' jobs, one person per job.
+(That is, each persion is assigned to exactly one job and each job is assigned to 
+exactly one person).
+
+The cost that would resutl if the ith person is assigned to the jth job is a known 
+wuantity C[i,j] for each pair i,j =1,2,...,n.
+
+The problem is to find an assignment with the minimum total cost.
+
+We can describe feasible solutions to the assignment problem as n-tuples j1,j2,...,jn
+in which the ith components, i=1,2,3...,n indicats the columh of the element selected 
+in the ith row(i.e, the job number assigned to the ith person).
+*/
+
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
@@ -10,15 +25,13 @@ void swap(int *x,int *y){
 }
 int* final_result;
 int final_cost=INFINITY;
-
+int opcount=0;
 void permutation(int n,int (*arr)[n],int *choice,int r){
     int i,j,k,cost=0;
     if(n==r){
         for(i=0;i<n;i++){
             cost+=arr[i][*(choice+i)];
-            printf("%d ",arr[i][*(choice+i)]);
         }
-        printf("\n");
         if(final_cost>cost){
             final_cost=cost;
             final_result=(int*)malloc(sizeof(int)*n);
@@ -28,30 +41,26 @@ void permutation(int n,int (*arr)[n],int *choice,int r){
         return;
     }
     for(i=0;i<n-r;i++){
+            opcount++;
         swap(choice+r,choice+i+r);
         permutation(n,arr,choice,r+1);
         swap(choice+r,choice+i+r);
     }
 }
 int main(){
- 
-    int njob,npeople,i,j,capacity;
-   /* printf("ASSIGNMENT PROBLEM USING BRUTE FORCE TECHNIQUE\n");
-    printf("Enter the total number of job: ");
-    scanf("%d",&njob);
+    int n,i,j;
+   printf("ASSIGNMENT PROBLEM USING BRUTE FORCE TECHNIQUE\n");
     printf("Enter the total number of people: ");
-    scanf("%d",&npeople);
-    int arr[npeople][njob];
-    printf("Enter the value: \n");
-    for(i=0;i<npeople;i++){
-        printf("Enter the cost for %d people:",i+1);
-        for(j=0;j<njob;i++){
-        scanf("%d",arr[i][j]);
+    scanf("%d",&n);
+    int arr[n][n];
+    for(i=0;i<n;i++){
+        printf("Enter %d cost for %d people:",n,i+1);
+        for(j=0;j<n;j++){
+            scanf("%d",&arr[i][j]);
+        }
     }
-    }
-    */
-    int n=4;
-    int arr[][4]={{9,3,5,2},{1,6,3,1},{1,5,1,2},{2,3,4,5}};
+    //int n=4;
+    //int arr[][4]={{9,3,5,2},{1,6,3,1},{1,5,1,2},{2,3,4,5}};
     int *choice=(int*)malloc(sizeof(int)*n);
     double totaltime;
     time_t start,end;
@@ -67,5 +76,6 @@ int main(){
     }
     printf("\nThe minimal cost is %d\n",final_cost);
     printf("The total time is %e\n",totaltime);
+    printf("\nThe opcount is %d\n",opcount);
     return 0;
 }
