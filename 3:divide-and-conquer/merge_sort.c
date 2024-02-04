@@ -4,7 +4,6 @@ technique. It sorts a given array A[0,1,....n-1] by dividing it into two halves
 A[0,1,..n/2-1] and A[n/2,...n-1], sorting each of them recursively, and then merging
 then two smaller sorted arrays into a single sorted one.
 */
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
