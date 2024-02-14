@@ -6,7 +6,7 @@
 int **adj;
 int *visited,*neighbour,*topo_sort;
 int k=0,t=0,opcount=0;
-int visit[5];
+int *visit;
 bool cycle=false;
 void DFS(int i){
     int j;
@@ -46,6 +46,7 @@ void main(){
     adj=(int**)malloc(sizeof(int*)*n);
     neighbour=(int*)malloc(sizeof(int)*n);
     visited=(int*)malloc(sizeof(int)*n);
+    visit=(int*)malloc(sizeof(int)*n);
     topo_sort=(int*)malloc(sizeof(int)*n);
     for(i=0;i<n;i++){
         visited[i]=0;
