@@ -23,17 +23,12 @@ NODE* insert(NODE* root,int value){
         root->right=insert(root->right,value);
     return root;
 }
-int height(NODE *root){
+int numberNode(NODE *root){
     if(root==NULL)
-        return -1;
+        return 0;
     else{
         opcount++;
-        int a=height(root->left);
-        int b=height(root->right);
-        if(a>b)
-            return a+1;
-        else
-            return b+1;
+        return numberNode(root->left)+numberNode(root->right)+1;
     }
 }
 void display(NODE * root){
@@ -43,12 +38,12 @@ void display(NODE * root){
     printf("%d\t",root->value);
     display(root->right);
 }
-void main(){
-    int choice,i,j,k,h,value;
+int main(){
+    int choice,i,j,k,node,value;
     time_t start,end;
     double totaltime;
     NODE *root=NULL;
-    printf("1.insert\n2.display\n3.calculate height\n4.exit\n");
+    printf("1.insert\n2.display\n3.calculate node number\n4.exit\n");
     while(1){
         opcount=0;
         printf("Enter choice: ");
@@ -65,18 +60,19 @@ void main(){
             break;
         case 3:
             start=clock();
-            h=height(root);
+            node=numberNode(root);
             end=clock();
             totaltime=(double)(end-start)/CLOCKS_PER_SEC;
-            printf("The height of tree is %d\n",h);
+            printf("The node in tree is %d\n",node);
             printf("The opcount is %d\n",opcount);
             printf("The total time is %e\n",totaltime);
             break;
         case 4:
-            return;
+            return 0;
         default:
             printf("invalid choice");
         }
     }
+    return 0;
 }
 

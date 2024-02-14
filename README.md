@@ -22,8 +22,9 @@ Exhaustive Search
 3-1:Mergesort
 3-2:Quicksort
 3-3:Height of Binary Tree
-3-4:Multiplication of Large Integers
-3-5:Strassen's Matrix Multiplication
+3-4:number of nodes in BST
+3-5:Multiplication of Large Integers
+3-6:Strassen's Matrix Multiplication
 
 
 
