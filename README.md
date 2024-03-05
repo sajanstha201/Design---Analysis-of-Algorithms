@@ -34,11 +34,13 @@ Exhaustive Search
 4-3:searching problem
 4-4:Balanced Search tree
 4-5:Heaps and Heapsort
-4-6:problem reduction
-4-7:computing the least common multiple
-4-8:counting paths in graph
-4-9:reduction of optimization problems
-4-10:linear programming
+4-6:bottomup heap construction
+4-7:topdown heanp construction
+4-8:problem reduction
+4-9:computing the least common multiple
+4-10:counting paths in graph
+4-11:reduction of optimization problems
+4-12:linear programming
 
 
 5:SPACE AND TIME TRADE-OFFS
