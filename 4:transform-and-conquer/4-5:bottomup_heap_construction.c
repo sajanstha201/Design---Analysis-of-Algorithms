@@ -11,7 +11,6 @@ int* buttomup(int *arr,int n){
         bool heap=false;
         while(!heap&&j<=n){
                 opcount++;
-            printf("%d\n",k);
             temp=j;
             if(j+1<=n)
                 if(arr[j+1]>arr[j])

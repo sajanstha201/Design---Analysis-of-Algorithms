@@ -7,19 +7,33 @@ typedef struct node{
     int f;
 }NODE;
 int opcount;
-NODE *insert(NODE *root,int value){
-    if(root==NULL){
-        NODE *node=(NODE*)malloc(sizeof(NODE));
-        node->f=0;
-        node->value=value;
-        node->left=NULL;
-        node->right=NULL;
-        return node;
-    }
-    if(value<root->value)
-        root->left=insert(root->left,value);
-    else
-        root->right=insert(root->right,value);
+
+NODE* LL(NODE * root){
+    NODE *left=root->left;
+    NODE *right=root->right;
+    NODE *temproot=root;
+    temproot->right=right->left;
+    right->left=temproot;
+    root=right;
+    return root;
+}
+NODE* RR(NODE * root){
+    NODE *left=root->left;
+    NODE *right=root->right;
+    NODE *temproot=root;
+    temproot->left=left->right;
+    left->right=temproot;
+    root=left;
+    return root;
+}
+NODE *RL(NODE *root){
+    root->right=RR(root->right);
+    root=LL(root);
+    return root;
+}
+NODE *LR(NODE *root){
+    root->left=LL(root->left);
+    root=RR(root);
     return root;
 }
 int findFactor(NODE *root){
@@ -34,6 +48,36 @@ int findFactor(NODE *root){
     else
         return b+1;
 }
+NODE *insert(NODE *root,int value){
+    if(root==NULL){
+        NODE *node=(NODE*)malloc(sizeof(NODE));
+        node->f=0;
+        node->value=value;
+        node->left=NULL;
+        node->right=NULL;
+        return node;
+    }
+    if(value<root->value)
+        root->left=insert(root->left,value);
+    else
+        root->right=insert(root->right,value);
+    
+    findFactor(root);
+    if(root->f>1){
+        if(root->left->value>value)
+            root=RR(root);
+        else if(root->left->value<value)
+            root=LR(root);
+    }
+    else if(root->f<-1){
+        if(root->right->value>value)
+            root=RL(root);
+        else if(root->right->value<value)
+            root=LL(root);
+    }
+    return root;
+}
+
 void display(NODE *root){
     if(root==NULL)
         return;
@@ -56,8 +100,11 @@ void main(){
                 printf("Enter the number: ");
                 scanf("%d",&value);
                 root=insert(root,value);
+                display(root);
+                printf("\n");
                 break;
             case 2:
+                findFactor(root);
                 display(root);
                 printf("\n");
                 break;

@@ -32,10 +32,12 @@ Exhaustive Search
 4-1:Presorting: Checking element uniqueness in an array
 4-2:computing mode
 4-3:searching problem
+
+4-4:2-3 tree
 4-4:AVL Tree
-4-5:Heaps and Heapsort
-4-6:bottomup heap construction
-4-7:topdown heanp construction
+4-5:bottomup heap construction
+4-6:topdown heanp construction
+4-7:heapsort
 
 4-8:problem reduction
 4-9:computing the least common multiple
