@@ -69,9 +69,9 @@ Exhaustive Search
 7-5:huffman trees
 
 8:BACKTRACKING
-n-queen's problem
-hamiltanian circuit problem
-subset sum problem
+8-1:n-queen's problem
+8-2:hamiltanian circuit problem
+8-3:subset sum problem
 
 BRANCH AND BOUND
 assignment problem
