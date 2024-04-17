@@ -62,11 +62,10 @@ Exhaustive Search
 
 
 7:GREDDY TECHNIQUE
-7-1:minimum spanning tree
-7-2:prim's algorithms
-7-3:kruskal's algorithms
-7-4:dijkstra's algorithms
-7-5:huffman trees
+7-1:prim's algorithms
+7-2:kruskal's algorithms
+7-3:dijkstra's algorithms
+7-4:huffman trees
 
 8:BACKTRACKING
 8-1:n-queen's problem
