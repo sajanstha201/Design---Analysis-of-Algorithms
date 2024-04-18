@@ -10,13 +10,12 @@ typedef struct node{
 } NODE;
 NODE *stack[100];
 int top=-1;
-void push(NODE * node){
+void push(NODE *node){
     stack[++top]=node;
 }
 NODE* pop(){
     return stack[top--];
 }
-
 NODE* make_node(int value,int f){
     NODE * node=(NODE*)malloc(sizeof(NODE));
     node->value=value;
