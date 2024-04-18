@@ -91,7 +91,6 @@ void main(){
     int i,j,k,v;
     scanf("%d",&v);
     int adj[v][v];
-    printf("Enter the adj: \n");
     for(i=0;i<v;i++)
         for(j=0;j<v;j++)
             scanf("%d",&adj[i][j]);
