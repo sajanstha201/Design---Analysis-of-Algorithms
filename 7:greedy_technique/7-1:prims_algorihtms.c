@@ -23,12 +23,11 @@ void prims(int v,int adj[v][v],int mst[v][v],int selected[v]){
                 max=adj[i][j];
         }
     }
-    k=1;
     for(i=0;i<v-1;i++){
         min=max+1;
         for(j=0;j<k;j++){
             for(a=0;a<v;a++){
-                if(adj[selected[j]][a]&&adj[selected[j]][a]<min&&!cycle(k,selected,a)){
+                if(adj[selected[j]][a]&&(adj[selected[j]][a]<min)&&!cycle(k,selected,a)){
                     min=adj[selected[j]][a];
                     x=selected[j];
                     y=a;
@@ -54,17 +53,11 @@ void main(){
     int mst[i][j];
     for(i=0;i<v;i++){
         for(j=0;j<v;j++){
-            if(!adj[i][j])
-                adj[i][j]=0;
             mst[i][j]=0;
         }
     }
     int selected[v];
     prims(v,adj,mst,selected);
-    printf("the result is :");
-    for(i=0;i<v;i++){
-        printf("->%d ",selected[i]);
-    }
     printf("\nMST is:\n");
     for(i=0;i<v;i++){
         for(j=0;j<v;j++){

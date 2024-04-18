@@ -48,7 +48,6 @@ void dijkstras(int v,int adj[v][v],int starting_point,int min_path[v],int vertic
     printf("\n");
     for(i=0;i<v;i++)
         printf("%d ",vertices[i]+1);
-
 }
 void main(){
     int i,j,v;
@@ -70,5 +69,4 @@ void main(){
     int min_path[v];
     int vertices[v];
     dijkstras(v,adj,starting_point,min_path,vertices);
-
 }
